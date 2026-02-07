@@ -1,0 +1,4 @@
+model,auc_mean,auc_std,acc_mean,acc_std,f1_mean,f1_std,overfit_mean
+LogisticRegression,0.6131,0.0551,0.5652,0.0704,0.6293,0.0925,0.0161
+RandomForest,0.5654,0.0564,0.5435,0.0267,0.5794,0.1277,0.0513
+XGBoost,0.5715,0.0984,0.5348,0.0714,0.5594,0.2082,0.0435

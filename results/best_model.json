@@ -1,0 +1,11 @@
+{
+  "auc": 0.6799242424242424,
+  "model_name": "LogisticRegression",
+  "fold": 2,
+  "best_params": {
+    "C": 1.0,
+    "max_iter": 2000,
+    "penalty": "l2",
+    "solver": "saga"
+  }
+}

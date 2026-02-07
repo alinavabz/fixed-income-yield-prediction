@@ -1,0 +1,16 @@
+fold,model,auc,accuracy,f1,precision,recall,best_params,n_features,inner_auc,overfit_gap,train_start,train_end,test_start,test_end
+1,LogisticRegression,0.6038,0.4783,0.5714,0.4444,0.8,"{'C': 10.0, 'max_iter': 2000, 'penalty': 'l1', 'solver': 'saga'}",20,0.6747,0.0709,2001-04-30,2006-03-31,2006-05-31,2010-02-28
+1,RandomForest,0.6096,0.587,0.6122,0.5172,0.75,"{'class_weight': 'balanced', 'max_depth': 3, 'min_samples_leaf': 5, 'n_estimators': 500}",20,0.6009,-0.0087,2001-04-30,2006-03-31,2006-05-31,2010-02-28
+1,XGBoost,0.6365,0.6304,0.6531,0.5517,0.8,"{'colsample_bytree': 0.8, 'learning_rate': 0.01, 'max_depth': 5, 'n_estimators': 500, 'scale_pos_weight': 1.0, 'subsample': 0.8}",20,0.593,-0.0435,2001-04-30,2006-03-31,2006-05-31,2010-02-28
+2,LogisticRegression,0.6799,0.5,0.6567,0.4889,1.0,"{'C': 1.0, 'max_iter': 2000, 'penalty': 'l2', 'solver': 'saga'}",20,0.6182,-0.0617,2001-04-30,2010-02-28,2010-04-30,2014-01-31
+2,RandomForest,0.589,0.5435,0.6316,0.5143,0.8182,"{'class_weight': 'balanced', 'max_depth': 3, 'min_samples_leaf': 5, 'n_estimators': 500}",20,0.6264,0.0374,2001-04-30,2010-02-28,2010-04-30,2014-01-31
+2,XGBoost,0.6345,0.5217,0.6562,0.5,0.9545,"{'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 100, 'scale_pos_weight': 1.0, 'subsample': 0.8}",20,0.6265,-0.008,2001-04-30,2010-02-28,2010-04-30,2014-01-31
+3,LogisticRegression,0.6,0.6087,0.7273,0.5854,0.96,"{'C': 1.0, 'max_iter': 2000, 'penalty': 'l1', 'solver': 'saga'}",20,0.6265,0.0265,2001-04-30,2014-01-31,2014-03-31,2017-12-31
+3,RandomForest,0.5695,0.5217,0.6562,0.5385,0.84,"{'class_weight': 'balanced', 'max_depth': 10, 'min_samples_leaf': 5, 'n_estimators': 200}",20,0.6357,0.0662,2001-04-30,2014-01-31,2014-03-31,2017-12-31
+3,XGBoost,0.5219,0.5652,0.6667,0.5714,0.8,"{'colsample_bytree': 0.8, 'learning_rate': 0.01, 'max_depth': 3, 'n_estimators': 100, 'scale_pos_weight': 1.0, 'subsample': 0.8}",20,0.6147,0.0928,2001-04-30,2014-01-31,2014-03-31,2017-12-31
+4,LogisticRegression,0.6477,0.6304,0.6909,0.6129,0.7917,"{'C': 0.1, 'max_iter': 2000, 'penalty': 'l2', 'solver': 'saga'}",20,0.6208,-0.027,2001-04-30,2017-12-31,2018-02-28,2021-11-30
+4,RandomForest,0.5909,0.5435,0.6441,0.5429,0.7917,"{'class_weight': 'balanced', 'max_depth': 5, 'min_samples_leaf': 5, 'n_estimators': 200}",20,0.6084,0.0175,2001-04-30,2017-12-31,2018-02-28,2021-11-30
+4,XGBoost,0.6439,0.5217,0.6333,0.5278,0.7917,"{'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 100, 'scale_pos_weight': 1.0, 'subsample': 0.8}",20,0.6341,-0.0099,2001-04-30,2017-12-31,2018-02-28,2021-11-30
+5,LogisticRegression,0.5341,0.6087,0.5,0.6429,0.4091,"{'C': 1.0, 'max_iter': 2000, 'penalty': 'l1', 'solver': 'saga'}",20,0.6057,0.0716,2001-04-30,2021-11-30,2022-01-31,2025-10-31
+5,RandomForest,0.4678,0.5217,0.3529,0.5,0.2727,"{'class_weight': 'balanced', 'max_depth': 10, 'min_samples_leaf': 5, 'n_estimators': 500}",20,0.6119,0.1441,2001-04-30,2021-11-30,2022-01-31,2025-10-31
+5,XGBoost,0.4205,0.4348,0.1875,0.3,0.1364,"{'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 7, 'n_estimators': 100, 'scale_pos_weight': 1.0, 'subsample': 0.8}",20,0.6065,0.1861,2001-04-30,2021-11-30,2022-01-31,2025-10-31
