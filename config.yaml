@@ -1,0 +1,111 @@
+# ============================================================
+# Fixed Income Yield Prediction - Configuration
+# ============================================================
+
+data:
+  start_date: "2000-01-01"
+  end_date: "2025-12-31"
+  target_horizon_months: 1  # Predict yield direction 1 month ahead
+  raw_data_path: "data/raw_macro_data.csv"
+  features_path: "data/features.csv"
+
+  # FRED series IDs
+  fred_series:
+    - id: "DGS10"
+      name: "treasury_10y"
+      description: "10-Year Treasury Constant Maturity Rate"
+    - id: "DGS2"
+      name: "treasury_2y"
+      description: "2-Year Treasury Constant Maturity Rate"
+    - id: "DFF"
+      name: "fed_funds_rate"
+      description: "Federal Funds Effective Rate"
+    - id: "CPIAUCSL"
+      name: "cpi"
+      description: "Consumer Price Index for All Urban Consumers"
+    - id: "UNRATE"
+      name: "unemployment_rate"
+      description: "Unemployment Rate"
+    - id: "BAA10Y"
+      name: "credit_spread_baa"
+      description: "Moody's BAA Corporate Bond Spread over 10Y Treasury"
+    - id: "T10Y3M"
+      name: "term_spread_10y3m"
+      description: "10-Year Treasury Minus 3-Month Treasury"
+    - id: "UMCSENT"
+      name: "consumer_sentiment"
+      description: "University of Michigan Consumer Sentiment"
+
+  # Yahoo Finance tickers
+  yahoo_tickers:
+    - ticker: "^VIX"
+      name: "vix"
+      description: "CBOE Volatility Index"
+    - ticker: "^GSPC"
+      name: "sp500"
+      description: "S&P 500 Index"
+
+feature_engineering:
+  # Rolling window sizes (in months)
+  rolling_windows: [3, 6, 12]
+
+  # Features to generate
+  features:
+    - type: "momentum"
+      description: "Month-over-month change in yield"
+    - type: "rolling_mean"
+      description: "Rolling average of yield"
+    - type: "rolling_std"
+      description: "Rolling volatility of yield"
+    - type: "term_spread"
+      description: "10Y minus 2Y yield (yield curve slope)"
+    - type: "rate_of_change"
+      description: "Percentage change over rolling window"
+    - type: "cpi_yoy"
+      description: "Year-over-year CPI change (inflation proxy)"
+    - type: "real_rate"
+      description: "10Y yield minus YoY CPI"
+
+model:
+  # Time-series cross-validation
+  cv:
+    n_splits: 5
+    min_train_months: 60  # Minimum 5 years of training data
+    gap_months: 1  # 1-month gap to prevent leakage
+
+  # Models and hyperparameter grids
+  models:
+    logistic_regression:
+      params:
+        C: [0.001, 0.01, 0.1, 1.0, 10.0]
+        penalty: ["l1", "l2"]
+        solver: ["saga"]
+        max_iter: [2000]
+
+    random_forest:
+      params:
+        n_estimators: [100, 200, 500]
+        max_depth: [3, 5, 10]
+        min_samples_leaf: [5, 10, 20]
+        class_weight: ["balanced"]
+
+    xgboost:
+      params:
+        n_estimators: [100, 200, 500]
+        max_depth: [3, 5, 7]
+        learning_rate: [0.01, 0.05, 0.1]
+        subsample: [0.8]
+        colsample_bytree: [0.8]
+        scale_pos_weight: [1.0]
+
+  # Feature selection
+  feature_selection:
+    method: "mutual_info"  # mutual_info, f_classif, or none
+    max_features: 20
+
+  random_state: 42
+
+output:
+  results_path: "results/"
+  figures_path: "results/figures/"
+  model_path: "results/models/"
