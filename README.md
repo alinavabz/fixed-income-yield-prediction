@@ -10,11 +10,15 @@ Fixed income portfolio managers need to anticipate interest rate movements for a
 
 | Model | AUC | Accuracy | F1 |
 |---|---|---|---|
-| Logistic Regression | Baseline | — | — |
-| Random Forest | — | — | — |
-| XGBoost | — | — | — |
+| Logistic Regression | 0.613 ± 0.055 | 0.565 ± 0.070 | 0.629 ± 0.093 |
+| Random Forest | 0.565 ± 0.056 | 0.544 ± 0.027 | 0.579 ± 0.128 |
+| XGBoost | 0.572 ± 0.098 | 0.535 ± 0.071 | 0.559 ± 0.208 |
 
-*(Fill in after running — results depend on date range)*
+Logistic Regression performed best with the lowest overfit gap (0.016), suggesting that simpler linear models generalize better for macro-driven yield prediction where signal-to-noise is low.
+
+![Model Comparison](results/figures/model_comparison.png)
+![SHAP Feature Importance](results/figures/shap_feature_importance.png)
+![SHAP Summary](results/figures/shap_summary.png)
 
 ## Methodology
 
